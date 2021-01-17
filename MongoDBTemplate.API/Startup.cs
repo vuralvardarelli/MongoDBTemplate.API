@@ -6,6 +6,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MongoDBTemplate.Core.Models.Common;
+using MongoDBTemplate.Infrastructure.Data;
+using MongoDBTemplate.Infrastructure.Data.Interfaces;
+using MongoDBTemplate.Infrastructure.Repositories;
+using MongoDBTemplate.Infrastructure.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +30,15 @@ namespace MongoDBTemplate.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            AppSettings appSettings = new AppSettings();
+            Configuration.GetSection("AppSettings").Bind(appSettings);
+            services.AddSingleton<AppSettings>(appSettings);
+
+            services.AddScoped<IDatabaseContext, MongoDBContext>();
+            services.AddScoped<IRepository, BookRepository>();
+
+            services.AddMvc().AddNewtonsoftJson();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
