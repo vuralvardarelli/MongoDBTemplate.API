@@ -5,7 +5,7 @@ Steps:
 
 If you want to start app on Docker ;
 
-1. Please go to solution folder and type "docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d"
+1. Please go to solution folder and type to cmd "docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d"
 2. After first step, you can use API's on "localhost:9001" , if you want to go through swagger just type "localhost:9001/swagger" to your browser.
 
 If you want to start project on Visual Studio 2019
