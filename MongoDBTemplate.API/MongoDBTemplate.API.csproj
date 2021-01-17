@@ -14,4 +14,9 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MongoDBTemplate.Core\MongoDBTemplate.Core.csproj" />
+    <ProjectReference Include="..\MongoDBTemplate.Infrastructure\MongoDBTemplate.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
