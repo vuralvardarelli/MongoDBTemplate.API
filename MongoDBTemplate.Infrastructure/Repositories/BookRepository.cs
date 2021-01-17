@@ -1,6 +1,7 @@
 ﻿using MongoDB.Driver;
 using MongoDBTemplate.Core.Models.Entities;
 using MongoDBTemplate.Infrastructure.Data;
+using MongoDBTemplate.Infrastructure.Data.Interfaces;
 using MongoDBTemplate.Infrastructure.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,9 @@ namespace MongoDBTemplate.Infrastructure.Repositories
 {
     public class BookRepository : IRepository
     {
-        private MongoDBContext _context;
+        private IDatabaseContext _context;
 
-        public BookRepository(MongoDBContext context)
+        public BookRepository(IDatabaseContext context)
         {
             _context = context;
         }

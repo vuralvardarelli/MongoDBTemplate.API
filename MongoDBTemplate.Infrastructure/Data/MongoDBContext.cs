@@ -17,7 +17,6 @@ namespace MongoDBTemplate.Infrastructure.Data
             _settings = settings;
             var client = new MongoClient(_settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
-            //database.CreateCollection(settings.CollectionName);
 
             Books = database.GetCollection<Book>(settings.CollectionName);
         }
